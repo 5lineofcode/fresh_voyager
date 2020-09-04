@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jul 17, 2020 at 03:55 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.30
+-- Host: 127.0.0.1
+-- Generation Time: Sep 04, 2020 at 05:26 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `express_pos_db`
+-- Database: `fresh_voyager`
 --
 
 -- --------------------------------------------------------
@@ -629,7 +629,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Admin', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$AaP4Nd.N2ch9RkNpWqPhSOSKVOmmUCmVDkP9Gel4ABXsLKu0uptO.', 'O3hjGKWP8N1RhKd127G2BKVeYmjhqnR41O50H8c8mTBsIJTpvj0v34YYYcNq', '{\"locale\":\"en\"}', '2020-06-28 00:23:39', '2020-07-16 18:53:56');
+(1, 1, 'Admin', 'admin@gmail.com', 'users/default.png', NULL, '$2y$10$AaP4Nd.N2ch9RkNpWqPhSOSKVOmmUCmVDkP9Gel4ABXsLKu0uptO.', 'O3hjGKWP8N1RhKd127G2BKVeYmjhqnR41O50H8c8mTBsIJTpvj0v34YYYcNq', '{\"locale\":\"en\"}', '2020-06-28 00:23:39', '2020-07-16 18:53:56');
 
 -- --------------------------------------------------------
 
