@@ -228,6 +228,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Input'     => Illuminate\Support\Facades\Input::class,
         
+        // 'Request' => Illuminate\Http\Request::class,
+        'Controller'  => App\Http\Controllers\Controller::class,
+        
     ],
 
 ];

@@ -17,7 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Route::group(['prefix' => 'api'], function () {
+    Route::get('/product', function () {
+        return 'welcome, product';
+    });
+});
+
+Route::get('example', 'Api\ExampleController@index');
