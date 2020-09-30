@@ -14,7 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $view = "welcome";
+    $page_title = "wow";
+
+    $display_name_plural = "Z";
+    
+    return Voyager::view($view, compact(
+        'page_title',
+        'display_name_plural'
+    ));
 });
 
 Route::group(['prefix' => 'admin'], function () {

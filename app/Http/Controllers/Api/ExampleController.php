@@ -10,8 +10,7 @@ class ExampleController extends Controller
     public function index(Request $request)
     {
         $validatedData = $request->validate([
-            'title' => 'required|unique:posts|max:255',
-            'content' => 'required'
+            'title' => 'required|unique:posts|max:255'
         ]);
 
         $title = $request->input("title");
@@ -19,6 +18,7 @@ class ExampleController extends Controller
         $tag = $request->input("tag");
 
         $results = DB::select("select * from users");
-        return json_encode($results);
+        // return json_encode($results);
+        return view("welcome");
     }
 }
