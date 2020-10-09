@@ -29,10 +29,42 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Route::group(['prefix' => 'api'], function () {
-    Route::get('/product', function () {
-        return 'welcome, product';
+Route::group(['prefix' => 'crud'], function () {
+    Route::get('/definition',function(){
+        $controller = App::make('\App\Http\Controllers\Api\CrudGeneratorController');
+        return $controller->callAction('definition',[]);
     });
 });
 
-Route::get('example', 'Api\ExampleController@index');
+Route::group(['prefix' => 'api'], function () {
+    // Route::get('/product', 'Api\ProductController@index');
+    // Route::get('/product', 'Api\CrudGeneratorController@index');
+
+    Route::get('/{endpoint}',function($endpoint){
+        $controller = App::make('\App\Http\Controllers\Api\CrudGeneratorController');
+        return $controller->callAction('index', [$endpoint]);
+    });
+
+    Route::get('/{endpoint}/{id}',function($endpoint,$id){
+        $controller = App::make('\App\Http\Controllers\Api\CrudGeneratorController');
+        return $controller->callAction('single_item', [$endpoint, $id]);
+    });
+
+    Route::post('/{endpoint}',function($endpoint){
+        $postdata = Request::all();
+        $controller = App::make('\App\Http\Controllers\Api\CrudGeneratorController');
+        return $controller->callAction('create', [$endpoint, $postdata] );
+    });
+
+    Route::put('/{endpoint}/{id}',function($endpoint,$id){
+        $postdata = Request::all();
+        $controller = App::make('\App\Http\Controllers\Api\CrudGeneratorController');
+        return $controller->callAction('update', [$endpoint, $id, $postdata]);
+    });
+
+    Route::delete('/{endpoint}/{id}',function($endpoint,$id){
+        $controller = App::make('\App\Http\Controllers\Api\CrudGeneratorController');
+        return $controller->callAction('delete', [$endpoint, $id]);
+    });
+
+});
