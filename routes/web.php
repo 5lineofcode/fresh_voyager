@@ -66,5 +66,12 @@ Route::group(['prefix' => 'api'], function () {
         $controller = App::make('\App\Http\Controllers\Api\CrudGeneratorController');
         return $controller->callAction('delete', [$endpoint, $id]);
     });
+});
 
+
+Route::group(['prefix' => 'database'], function () {
+    Route::get('/',function(){
+        $controller = App::make('\App\Http\Controllers\Api\CrudGeneratorController');
+        return $controller->callAction('databaseIndex',[]);
+    }); 
 });

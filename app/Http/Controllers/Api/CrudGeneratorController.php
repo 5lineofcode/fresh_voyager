@@ -129,4 +129,17 @@ class CrudGeneratorController extends Controller
             ]
         ]);
     }
+
+    public function databaseIndex(){
+
+        $database_name = env("DB_DATABASE");
+        $tables =  DB::select("
+            SELECT table_name FROM information_schema.tables
+            WHERE table_schema = '$database_name';
+        ");
+        
+        return response()->json([
+            "data" => $tables
+        ]);
+    }
 }
