@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 31, 2020 at 09:19 AM
+-- Generation Time: Jan 11, 2021 at 03:14 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.3.21
 
@@ -168,7 +168,8 @@ CREATE TABLE `menus` (
 --
 
 INSERT INTO `menus` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'admin', '2020-06-27 23:58:04', '2020-06-27 23:58:04');
+(1, 'admin', '2020-06-27 23:58:04', '2020-06-27 23:58:04'),
+(2, 'user', '2020-12-31 05:20:30', '2020-12-31 05:20:30');
 
 -- --------------------------------------------------------
 
@@ -198,14 +199,14 @@ CREATE TABLE `menu_items` (
 
 INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
 (1, 1, 'Dashboard', '', '_self', 'voyager-boat', NULL, NULL, 1, '2020-06-27 23:58:04', '2020-06-27 23:58:04', 'voyager.dashboard', NULL),
-(3, 1, 'Users', '', '_self', 'voyager-person', NULL, NULL, 3, '2020-06-27 23:58:04', '2020-06-27 23:58:04', 'voyager.users.index', NULL),
-(5, 1, 'Tools', '', '_self', 'voyager-tools', NULL, NULL, 8, '2020-06-27 23:58:04', '2020-09-04 08:33:47', NULL, NULL),
+(3, 1, 'Users', '', '_self', 'voyager-person', NULL, NULL, 2, '2020-06-27 23:58:04', '2020-12-31 01:21:29', 'voyager.users.index', NULL),
+(5, 1, 'Tools', '', '_self', 'voyager-tools', NULL, NULL, 3, '2020-06-27 23:58:04', '2020-12-31 01:21:29', NULL, NULL),
 (6, 1, 'Menu Builder', '', '_self', 'voyager-list', NULL, 5, 1, '2020-06-27 23:58:04', '2020-09-04 08:33:47', 'voyager.menus.index', NULL),
 (7, 1, 'Database', '', '_self', 'voyager-data', NULL, 5, 2, '2020-06-27 23:58:04', '2020-09-04 08:33:47', 'voyager.database.index', NULL),
 (8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 3, '2020-06-27 23:58:04', '2020-09-04 08:33:47', 'voyager.compass.index', NULL),
-(9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 13, '2020-06-27 23:58:04', '2020-06-27 23:58:04', 'voyager.bread.index', NULL),
-(10, 1, 'Settings', '', '_self', 'voyager-settings', NULL, NULL, 14, '2020-06-27 23:58:04', '2020-06-27 23:58:04', 'voyager.settings.index', NULL),
-(11, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 13, '2020-06-27 23:58:05', '2020-06-27 23:58:05', 'voyager.hooks', NULL);
+(9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 4, '2020-06-27 23:58:04', '2020-12-31 01:21:29', 'voyager.bread.index', NULL),
+(10, 1, 'Settings', '', '_self', 'voyager-settings', NULL, NULL, 4, '2020-06-27 23:58:04', '2020-12-31 01:21:29', 'voyager.settings.index', NULL),
+(11, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 5, '2020-06-27 23:58:05', '2020-12-31 01:21:29', 'voyager.hooks', NULL);
 
 -- --------------------------------------------------------
 
@@ -309,6 +310,7 @@ CREATE TABLE `permission_role` (
 
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (1, 1),
+(1, 2),
 (2, 1),
 (3, 1),
 (4, 1),
@@ -474,7 +476,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Admin', 'admin@gmail.com', 'users\\September2020\\HeR5AoJumv3THfrsUbQv.png', NULL, '$2y$10$AaP4Nd.N2ch9RkNpWqPhSOSKVOmmUCmVDkP9Gel4ABXsLKu0uptO.', 'RntJNr0G7ptgPH7B01q1JaQZv79yjQe0g8BwvLijxj4tFwJAwitkvmAUlhCX', '{\"locale\":\"en\"}', '2020-06-28 00:23:39', '2020-09-29 23:34:33');
+(1, 1, 'Admin', 'admin@admin.com', 'users\\September2020\\HeR5AoJumv3THfrsUbQv.png', NULL, '$2y$10$AaP4Nd.N2ch9RkNpWqPhSOSKVOmmUCmVDkP9Gel4ABXsLKu0uptO.', 'YsZLJSzwCvFhiFbVgXP8sScuxBN3zvjRFeg3HWyvMquY43C10gTWinNVwGDy', '{\"locale\":\"en\"}', '2020-06-28 00:23:39', '2020-09-29 23:34:33'),
+(2, 2, 'User', 'user@user.com', 'users\\January2021\\cSQDPXyj1thZ00N3jiOn.png', NULL, '$2y$10$rwUh/pmpocMPv2Thmx4iMegGPtExC1odHehz4NLgnJ7kiODraf7EK', NULL, '{\"locale\":\"en\"}', '2020-12-31 01:22:08', '2021-01-11 07:09:00');
 
 -- --------------------------------------------------------
 
@@ -640,7 +643,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `menu_items`
@@ -682,7 +685,7 @@ ALTER TABLE `translations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
